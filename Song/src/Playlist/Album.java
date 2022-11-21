@@ -52,11 +52,5 @@ public class Album {
         return songs;
     }
 
- /*   @Override
-    private String toString() {
 
-            return name+" : "+artist;
-
-
-      }*/
 }

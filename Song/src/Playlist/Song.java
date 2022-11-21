@@ -12,7 +12,9 @@ public class Song {
     public String getTitle() {
         return title;
     }
-    public String toString(){
+
+    @Override
+    public String toString() {
         return title+" : "+duration;
     }
 }
