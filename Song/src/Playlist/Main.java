@@ -1,6 +1,7 @@
 package Playlist;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.ListIterator;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,6 +17,7 @@ public class Main {
         album.addSong("The gypsy", 4.2);
         album.addSong("Soldier of fortune", 3.13);
         albums.add(album);
+
         album = new Album("For those about to rock", "AC/DC");
         album.addSong("For those about to rock", 5.44);
         album.addSong("I put the finger on you", 3.25);
@@ -27,6 +29,7 @@ public class Main {
         album.addSong("Breaking the rules", 5.32);
         album.addSong("Night of the long knives", 5.12);
         albums.add(album);
+
         LinkedList<Song> playList = new LinkedList<>();
         albums.get(0).addToPlayList("You can't do it right", playList);
         albums.get(0).addToPlayList("Holy man", playList);
@@ -37,7 +40,15 @@ public class Main {
         albums.get(1).addToPlayList(24, playList); // There is no track 24
         Album finalAlbum = album;
         albums.stream().forEach(s-> finalAlbum.getSongs().forEach(k-> System.out.println(k)));
-       // playList.stream().forEach(s-> finalAlbum.getSongs().forEach(k-> System.out.println(k)));
+        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        playList.stream().forEach(s-> finalAlbum.getSongs().forEach(k-> System.out.println(k)));
+        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+
+        //ListIterator iterator=playList.iterator();
+        var iterator=playList.iterator();
+        while (/*iterator is reference name*/iterator.hasNext()){
+            System.out.println(iterator.next().toString());
+        }
 
     }
 }
