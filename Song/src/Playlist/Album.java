@@ -6,50 +6,87 @@ import java.util.LinkedList;
 public class Album {
     private String name;
     private String artist;
+    SongList songList;
 
-    private ArrayList<Song> songs;
+    private class SongList{
+        private ArrayList<Song> songs;
+
+        public ArrayList<Song> getSongs() {
+            return songs;
+        }
+
+        public SongList() {
+            this.songs = new ArrayList<>();
+        }
+        public boolean add(Song song){
+            if (songs.contains(song)){
+                return false;
+            }else {
+                return songs.add(song);
+            }
+        }
+        public Song findSong(String title){
+            for (Song song: songs) {
+                if (song.getTitle().equals(title)){
+                    return song;
+                }
+            }
+            return null;
+        }
+        public Song findSong(int orderNumber){
+            int amountOfSong=orderNumber-1;
+
+            for (int i = 0; i <songs.size() ; i++) {
+                if (i==amountOfSong){
+                    return songs.get(amountOfSong);
+                }
+            }
+            return null;
+        }
+    }
 
 
 
     public Album(String name, String artist) {
         this.name = name;
         this.artist = artist;
-        this.songs=new ArrayList<>();
+        this.songList=new SongList();
+
     }
 
         public boolean addSong(String songTitle,double songDuration){
-        if (finsdSong(songTitle)==null){
-            return songs.add(new Song(songTitle,songDuration));
+        if (songList.findSong(songTitle)==null){
+            return songList.add(new Song(songTitle,songDuration));
         }
         return false;
     }
-    public Song finsdSong(String songName){
+    /*public Song finsdSong(String songName){
 
         for (Song songExsist:
-                songs) {
+                songList.getSongs()) {
             if (songExsist.getTitle().equals(songName)){
                 return songExsist;
             }
         }
         return null;
-    }
+    }*/
 
-    public boolean addToPlayList(int amountOfSongs, LinkedList<Song> linkedPlayList ){
-        for (int i = 0; i < amountOfSongs; i++) {
-            return linkedPlayList.add(songs.get(i));
+    public boolean addToPlayList(int oderNumberOfSongs, LinkedList<Song> linkedPlayList ){
+        if (songList.findSong(oderNumberOfSongs)!=null){
+            return linkedPlayList.add(songList.findSong(oderNumberOfSongs));
         }
         return false;
     }
     public boolean addToPlayList(String nameOfSong, LinkedList<Song> addViaSongName ){
 
-        if (finsdSong(nameOfSong)!=null){
-               return addViaSongName.add(finsdSong(nameOfSong));
+        if (songList.findSong(nameOfSong)!=null){
+               return addViaSongName.add(songList.findSong(nameOfSong));
             }
 
         return false;
     }
     public ArrayList<Song> getSongs() {
-        return songs;
+        return songList.getSongs();
     }
 
 

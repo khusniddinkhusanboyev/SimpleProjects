@@ -5,7 +5,7 @@ import java.util.ListIterator;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Album> albums = new ArrayList<>();
+                ArrayList<Album> albums = new ArrayList<>();
         Album album= new Album("Stormbringer", "Deep Purple");
         album.addSong("Stormbringer", 4.6);
         album.addSong("Love don't mean a thing", 4.22);
@@ -45,7 +45,7 @@ public class Main {
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 
         //ListIterator iterator=playList.iterator();
-        var iterator=playList.iterator();
+        var iterator=/*playlist is ListName*/playList.iterator();
         while (/*iterator is reference name*/iterator.hasNext()){
             System.out.println(iterator.next().toString());
         }
