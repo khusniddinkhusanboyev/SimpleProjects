@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class League <T extends Team > {
     private ArrayList<T> teams;
+    int count=1;
     private String name;
 
     public League(String name) {
@@ -19,7 +20,7 @@ public class League <T extends Team > {
             return false;
         }else {
             teams.add(team);
-            System.out.println(team.getName() + " picked for team " + this.getName());
+            System.out.println((count++)+". "+team.getName() + " picked for team " + this.getName());
             return true;
         }
     }

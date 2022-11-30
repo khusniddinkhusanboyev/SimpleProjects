@@ -1,6 +1,6 @@
 package league;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,14 +26,26 @@ public class Main {
 
         League<Team<FootballPlayer>> teamLeague1 = new League<>("FootBallPlayerLeague");
         Team<FootballPlayer> footballPlayerTeam = new Team<>("FootBallTeam");
-        footballPlayerTeam.matchResult(footballPlayerTeam, 0,1);
+        Team<FootballPlayer> footballPlayerTeam1 = new Team<>("FootBallTeam1");
+        footballPlayerTeam.matchResult(footballPlayerTeam, 2,1);
         System.out.print("-->"+footballPlayerTeam.ranking()+" ");
         teamLeague1.addTeam(footballPlayerTeam);
         footballPlayerTeam.addPlayer(new FootballPlayer("Hayotbek"));
         footballPlayerTeam.addPlayer(new FootballPlayer("Asrorbek"));
         footballPlayerTeam.addPlayer(new FootballPlayer("Akrom"));
         footballPlayerTeam.addPlayer(new FootballPlayer("benzima"));
+        teamLeague1.addTeam(footballPlayerTeam1);
+        footballPlayerTeam1.addPlayer(new FootballPlayer("Gorgina"));
+        footballPlayerTeam1.addPlayer(new FootballPlayer("Obama"));
+        footballPlayerTeam1.addPlayer(new FootballPlayer("Messi"));
+        footballPlayerTeam1.addPlayer(new FootballPlayer("Tramp"));
 
+        System.out.println(footballPlayerTeam1.compareTo(footballPlayerTeam));
+
+        Collections.sort(teamLeague1.getTeams());
+        /*Collection<Team<FootballPlayer>> teams=teamLeague1.getTeams();*/
+        /*List<Team<FootballPlayer>> teams=teamLeague1.getTeams();*/
+        /*ArrayList<Team<FootballPlayer>> teams=teamLeague1.getTeams();*/
 
 
     }
