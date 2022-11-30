@@ -24,6 +24,7 @@ public class League <T extends Team > {
         }
     }
 
+
     public ArrayList<T> getTeams() {
         return teams;
     }

@@ -1,4 +1,3 @@
-
 package league;
 import java.util.ArrayList;
 public class Team<T extends Player> {
@@ -8,6 +7,7 @@ public class Team<T extends Player> {
     int won = 0;
     int lost = 0;
     int tied = 0;
+     int count=1;
 
     private ArrayList<T> members = new ArrayList<>();
 
@@ -26,12 +26,12 @@ public class Team<T extends Player> {
         }
 
         members.add(player);
-            System.out.println(player.getName() + " picked for team " + this.getName());
+            System.out.println((count++)+". "+player.getName() + " picked for team " + this.getName());
         return true;
     }
 
     public int numPlayers() {
-        return this.members.size();
+        return members.size();
     }
 
     public void matchResult(Team<T> opponent, int ourScore, int theirScore) {
@@ -57,5 +57,6 @@ public class Team<T extends Player> {
     public ArrayList<T> getMembers(){
         return members;
     }
+
 
 }
