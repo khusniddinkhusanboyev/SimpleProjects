@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.Arrays;
+
 
 public class Monster implements Saveable {
     private String name;
@@ -14,9 +14,9 @@ public class Monster implements Saveable {
 
     @Override
     public ArrayList<String> write() {
-        Integer integer=hitPoints;
-        Integer integer1=strength;
-        ArrayList<String> writeLines=new ArrayList<>();
+        Integer integer = hitPoints;
+        Integer integer1 = strength;
+        ArrayList<String> writeLines = new ArrayList<>();
         writeLines.add(this.name);
         writeLines.add(integer.toString());
         writeLines.add(integer1.toString());
@@ -29,21 +29,21 @@ public class Monster implements Saveable {
             System.out.print("Monster{");
             for (int i = 0; i < lines.size(); i++) {
 
-                if (lines.get(i).equals(getName())){
+                if (lines.get(i).equals(getName())) {
                     System.out.print("name='" + getName() + '\'');
                 }
 
-                Integer integer=getHitPoints();
-                if (lines.get(i).equals(integer.toString())){
+                Integer integer = getHitPoints();
+                if (lines.get(i).equals(integer.toString())) {
                     System.out.print(", hitPoints=" + getHitPoints());
                 }
-                Integer integer1=getStrength();
-                if (lines.get(i).equals(integer1.toString())){
-                    System.out.print( ", strength=" + getStrength());
+                Integer integer1 = getStrength();
+                if (lines.get(i).equals(integer1.toString())) {
+                    System.out.print(", strength=" + getStrength());
                 }
 
             }
-            System.out.print('}'+"\n");
+            System.out.print('}' + "\n");
         }
     }
 
